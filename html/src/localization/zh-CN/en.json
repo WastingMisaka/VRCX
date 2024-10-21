@@ -532,8 +532,8 @@
               "model": "模型",
               "API": "API密钥",
               "custom": "自定义json模板",
-              "TODO": "TODO"
-
+              "TODO": "TODO",
+              "ai_models_chatglm": "智谱清言"
             }
           }
         }
@@ -1004,15 +1004,20 @@
             "legacy": "传统",
             "roles": "身份组"
         },
-        "launch_options": {
-            "header": "启动选项",
-            "description": "这些选项仅适用于高级用户。",
-            "example": "更改 FPS 限制：--fps=<N> 例：",
-            "path_override": "VRChat客户端位置",
-            "vrchat_docs": "VRChat 文档",
-            "unity_manual": "Unity 手册",
-            "save": "保存"
-        },
+      "launch_options": {
+        "header": "启动选项",
+        "description": "这些选项仅适用于高级用户。",
+        "example": "更改 FPS 限制：--fps=<N> 例：",
+        "path_override": "VRChat客户端位置",
+        "vrchat_docs": "VRChat 文档",
+        "unity_manual": "Unity 手册",
+        "save": "保存"
+      },
+      "api_key": {
+        "header": "API密钥设置",
+        "api_key": "API密钥",
+        "save": "保存"
+      },
         "config_json": {
             "header": "VRChat JSON 配置文件",
             "description1": "这些选项仅适用于高级用户。",
@@ -1308,6 +1313,7 @@
             "re_input_placeholder": "确认密码",
             "ok": "确定"
         },
+
         "screenshot_metadata": {
             "header": "图片元数据查看器",
             "drag": "拖放图片到这里",

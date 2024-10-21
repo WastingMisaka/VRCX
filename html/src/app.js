@@ -34035,10 +34035,45 @@ speechSynthesis.getVoices();
         var epoch = new Date(dateTime).getTime();
         this.instanceJoinHistory.set(location, epoch);
     };
+    // #endregion
 
+    // #region | App: Set Api Key Dialog
 
+    $app.data.SetApiKeyDialog = {
+        visible: false,
+        ApiKey: await configRepository.getString('apiKey'),
+    };
+
+    API.$on('LOGIN', async function () {
+        var D = $app.SetApiKeyDialog;
+    });
+
+    API.$on('LOGOUT', function () {
+        $app.SetApiKeyDialog.visible = false;
+    });
+
+    $app.methods.updateApiKey = function () {
+        var D = this.SetApiKeyDialog;
+        D.ApiKey = String(D.ApiKey)
+            .replace(/\s+/g, ' ')
+            .trim();
+        configRepository.setString('apiKey', D.ApiKey);
+        this.$message({
+            message: 'Updated ApiKey',
+            type: 'success'
+        });
+        D.visible = false;
+    };
+
+    $app.methods.showSetApiKeyDialog = function () {
+        this.$nextTick(() => adjustDialogZ(this.$refs.SetApiKeyDialog.$el));
+        var D = this.SetApiKeyDialog;
+        D.visible = true;
+    };
 
     // #endregion
+
+    
 
     $app = new Vue($app);
     window.$app = $app;

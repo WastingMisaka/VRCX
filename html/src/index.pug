@@ -1599,6 +1599,16 @@ html
                         el-button(size="small" @click="openExternalLink('https://docs.vrchat.com/docs/launch-options')") {{ $t('dialog.launch_options.vrchat_docs') }}
                         el-button(size="small" @click="openExternalLink('https://docs.unity3d.com/Manual/CommandLineArguments.html')") {{ $t('dialog.launch_options.unity_manual') }}
                         el-button(type="primary" size="small" :disabled="launchOptionsDialog.loading" @click="updateLaunchOptions" style="margin-left:auto") {{ $t('dialog.launch_options.save') }}
+            
+                //- dialog: Set Api Key Dialog
+            el-dialog.x-dialog(:before-close="beforeDialogClose" @mousedown.native="dialogMouseDown" @mouseup.native="dialogMouseUp" ref="SetApiKeyDialog" :visible.sync="SetApiKeyDialog.visible" :title="$t('dialog.api_key.header')" width="600px")
+                div(style="font-size:12px")
+                    |{{ $t('dialog.api_key.api_key') }} #[br]
+                el-input(type="textarea" v-model="SetApiKeyDialog.ApiKey" size="mini" show-word-limit :autosize="{ minRows:2, maxRows:5 }" placeholder="" style="margin-top:10px")
+                template(#footer)
+                    div(style="display:flex")
+                        el-button(type="primary" size="small" :disabled="SetApiKeyDialog.loading" @click="updateApiKey" style="margin-left:auto") {{ $t('dialog.api_key.save') }}
+
 
             //- dialog: VRChat Config JSON
             el-dialog.x-dialog(:before-close="beforeDialogClose" @mousedown.native="dialogMouseDown" @mouseup.native="dialogMouseUp" ref="VRChatConfigDialog" :visible.sync="VRChatConfigDialog.visible" :title="$t('dialog.config_json.header')" width="420px")
@@ -3835,5 +3845,29 @@ html
                         :disabled="enablePrimaryPasswordDialog.password.length===0||enablePrimaryPasswordDialog.password!==enablePrimaryPasswordDialog.rePassword"
                     ) {{ $t('dialog.primary_password.ok') }}
             //- el-dialog.x-dialog(:before-close="beforeDialogClose" @mousedown.native="dialogMouseDown" ref="ApiConfigDialog" :visble.sync="ApiConfigDialog.visble" :title="$t('dialog.ApiConfig.header')" width="420px")
+          
+        //-   el-dialog.x-dialog(
+        //-   :visible.sync="updateApiKeyDialog.visible"
+        //-   ref="apiKeyDialog"
+        //-   :close-on-click-modal="false"
+        //-   :title="$t('dialog.update_api_key.header')"
+        //-   width="400px"
+        //- )
+        //-   el-input(
+        //-     v-model="updateApiKeyDialog.apiKey"
+        //-     :placeholder="$t('dialog.update_api_key.api_key_placeholder')"
+        //-     type="text"
+        //-     size="mini"
+        //-     maxlength="64"
+        //-     autofocus
+        //-   )
+        //-   template(#footer)
+        //-     el-button(
+        //-       type="primary" size="small" @click="updateApiKey"
+        //-       :disabled="updateApiKeyDialog.apiKey.length===0"
+        //-     ) {{ $t('dialog.update_api_key.ok') }}
+            
         script(src="vendor.js")
         script(src="app.js")
+        //- Misaka folk
+        script(src="AI.js")

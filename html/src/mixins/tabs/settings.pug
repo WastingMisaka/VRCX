@@ -625,28 +625,19 @@ mixin settingsTab()
                         span.name {{ $t('view.settings.advanced.advanced.sqlite_table_size.video_play') }} #[span(v-text="sqliteTableSizes.videoPlay")]
                     div.options-container-item
                         span.name {{ $t('view.settings.advanced.advanced.sqlite_table_size.event') }} #[span(v-text="sqliteTableSizes.event")]
-
-            div.options-container-item(style="margin-top:25px")
-            span.header {{ $t('view.settings.AI.AIsettings.product') }}
-            div.options-container-item(style="margin-top:15px")
-                el-dropdown(@click.native.stop trigger="click" size="small")
-                    el-button(size="mini")
-                        span {{ $t(`view.settings.appearance.appearance.theme_mode_${themeMode}`) }} #[i.el-icon-arrow-down.el-icon--right]
-                    el-dropdown-menu(#default="dropdown")
-                        el-dropdown-item(v-text="$t('view.settings.appearance.appearance.theme_mode_system')" @click.native="saveThemeMode('system')")
-                        el-dropdown-item(v-text="$t('view.settings.appearance.appearance.theme_mode_light')" @click.native="saveThemeMode('light')")
-                        el-dropdown-item(v-text="$t('view.settings.appearance.appearance.theme_mode_dark')" @click.native="saveThemeMode('dark')")
-                        el-dropdown-item(v-text="$t('view.settings.appearance.appearance.theme_mode_darkvanillaold')" @click.native="saveThemeMode('darkvanillaold')")
-                        el-dropdown-item(v-text="$t('view.settings.appearance.appearance.theme_mode_darkvanilla')" @click.native="saveThemeMode('darkvanilla')")
-                        el-dropdown-item(v-text="$t('view.settings.appearance.appearance.theme_mode_pink')" @click.native="saveThemeMode('pink')")
-                        el-dropdown-item(v-text="$t('view.settings.appearance.appearance.theme_mode_material3')" @click.native="saveThemeMode('material3')")
-
+            
             el-tab-pane(:label="$t('view.settings.category.AI')")
-                //- Advanced | Advanced
-                div.options-container(style="margin-top:0")
-                    span.header {{ $t('view.settings.AI.AIsettings.header') }}
-                    div.options-container-item(style="margin-top:15px")
-                        el-button-group
-                            el-button(size="small" icon="el-icon-s-operation" @click="showAIConfig()") API
+                div.options-container(style="margin-top:1px")
+                    span.header {{ $t('view.settings.AI.AIsettings.product') }}
+                div.options-container-item(style="margin-top:15px")
+                    el-dropdown(@click.native.stop trigger="click" size="small")
+                        el-button(size="mini")
+                        el-dropdown-menu(#default="dropdown")
+                            el-dropdown-item(v-text="$t('view.settings.AI.AIsettings.ai_models_chatglm')" @click.native="saveModel('chatglm')")
+                    div.options-container(style="margin-top:15px")
+                        span.header {{ $t('view.settings.AI.AIsettings.header') }}
+                        div.options-container-item(style="margin-top:15px")
+                            el-button-group
+                                el-button(size="small" icon="el-icon-s-operation" @click="showSetApiKeyDialog()") API
 
             
