@@ -3834,5 +3834,6 @@ html
                         type="primary" size="small" @click="setPrimaryPassword"
                         :disabled="enablePrimaryPasswordDialog.password.length===0||enablePrimaryPasswordDialog.password!==enablePrimaryPasswordDialog.rePassword"
                     ) {{ $t('dialog.primary_password.ok') }}
+            //- el-dialog.x-dialog(:before-close="beforeDialogClose" @mousedown.native="dialogMouseDown" ref="ApiConfigDialog" :visble.sync="ApiConfigDialog.visble" :title="$t('dialog.ApiConfig.header')" width="420px")
         script(src="vendor.js")
         script(src="app.js")

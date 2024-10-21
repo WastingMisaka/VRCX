@@ -193,7 +193,8 @@
                 "notifications": "通知",
                 "wrist_overlay": "手腕叠加层",
                 "discord_presence": "Discord 状态面板",
-                "advanced": "高级"
+                "advanced": "高级",
+                "AI": "AI"
             },
             "general": {
                 "general": {
@@ -202,7 +203,8 @@
                     "latest_app_version": "最新版本",
                     "latest_app_version_refresh": "点击以刷新",
                     "repository_url": "源代码仓库地址",
-                    "support": "获取帮助支持"
+                    "support": "获取帮助支持",
+                    "misaka_blog" : "御坂博客"
                 },
                 "vrcx_updater": {
                     "header": "VRCX 更新设置",
@@ -398,131 +400,142 @@
                     "show_images": "显示世界缩略图"
                 }
             },
+          "advanced": {
             "advanced": {
-                "advanced": {
-                    "header": "高级设置",
-                    "launch_options": "启动选项",
-                    "screenshot_metadata": "截图元数据查看器",
-                    "vrc_registry_backup": "VRC 设置数据备份工具",
-                    "common_folders": "常用文件夹",
-                    "pending_offline": {
-                        "header": "离线标记延迟",
-                        "description": "将好友标记为离线之前的延迟(防止误判)",
-                        "set_delay": "设置延迟"
-                    },
-                    "primary_password": {
-                        "header": "独立密码",
-                        "description": "使用独立密码加密 VRCX 数据(将停用自动登录)"
-                    },
-                    "relaunch_vrchat": {
-                        "header": "崩溃后重启",
-                        "description": "重新加入崩溃前的房间"
-                    },
-                    "vrchat_quit_fix": {
-                        "header": "修复 VRChat 关闭问题",
-                        "description": "在 VRChat 退出时强制停止 VRChat 进程"
-                    },
-                    "auto_cache_management": {
-                        "header": "缓存自动清理",
-                        "description": "退出游戏时自动从缓存中删除过期数据"
-                    },
-                    "local_world_persistence": {
-                        "header": "世界数据持久化",
-                        "description": "启用世界数据持久化存储功能(需要重启)"
-                    },
-                    "remote_database": {
-                        "header": "模型数据库",
-                        "enable": "启用",
-                        "avatar_database_provider": "数据库提供方设置"
-                    },
-                    "youtube_api": {
-                        "header": "Youtube API",
-                        "enable": "启用",
-                        "youtube_api_key": "Youtube API 密钥",
-                        "enable_tooltip": "获取视频标题以供日志记录时使用，并获取进度条的时间"
-                    },
-                    "video_progress_pie": {
-                        "header": "视频进度圆饼叠加层",
-                        "enable": "启用",
-                        "enable_tooltip": "需要启用 SteamVR 叠加层选项",
-                        "dance_world_only": "仅在舞蹈类房间显示"
-                    },
-                    "screenshot_helper": {
-                        "header": "截图助手",
-                        "description": "在游戏拍摄的照片的元数据中添加世界ID/世界名称",
-                        "description_tooltip": "不幸的是，Windows并不支持直接查看PNG元数据(很多东西都不支持查看这玩意)，但你可以使用exiftool等命令行工具、png查看器或十六进制编辑器来查看它们。",
-                        "enable": "启用",
-                        "modify_filename": "同时修改文件名",
-                        "modify_filename_tooltip": "除了文件元数据外，还将把世界ID添加到截图文件名中。",
-                        "copy_to_clipboard": "复制到剪贴板"
-                    },
-                    "app_launcher": {
-                        "header": "应用启动器",
-                        "folder": "打开启动文件夹",
-                        "folder_tooltip": "如果要在VRChat启动时一并启动一些APP，请将其快捷方式放在这个文件夹中.",
-                        "enable": "启用",
-                        "auto_close": "在VRChat关闭后自动关闭这些APP"
-                    },
-                    "cache_debug": {
-                        "header": "VRCX 缓存/调试选项",
-                        "udon_exception_logging": "显示 Udon 错误日志",
-                        "gpu_fix": "修复 SteamVR 叠加层显示问题",
-                        "gpu_fix_notice": "(需要重启)",
-                        "gpu_fix_warning": "只有在 SteamVR 叠加层异常并且你有2张显卡的情况下才需要启用这个选项。",
-                        "disable_gamelog": "关闭游戏日志",
-                        "disable_gamelog_notice": "(可能会弄坏很多东西！)",
-                        "user_cache": "用户缓存：",
-                        "world_cache": "世界缓存：",
-                        "avatar_cache": "模型缓存：",
-                        "group_cache": "群组信息缓存:",
-                        "avatar_name_cache": "模型名称缓存：",
-                        "instance_cache": "房间信息缓存:",
-                        "clear_cache": "清除缓存",
-                        "auto_clear_cache": "自动清除缓存",
-                        "download_history": "下载记录",
-                        "show_console": "显示界面调试工具"
-                    },
-                    "sqlite_table_size": {
-                        "header": "SQLite 数据库大小",
-                        "refresh": "刷新",
-                        "gps": "GPS：",
-                        "status": "状态：",
-                        "bio": "自我介绍：",
-                        "avatar": "模型：",
-                        "online_offline": "上线 / 离线：",
-                        "friend_log_history": "好友变动记录：",
-                        "notification": "通知数量：",
-                        "location": "位置信息数量：",
-                        "join_leave": "加入 / 离开：",
-                        "portal_spawn": "放置的传送门数量：",
-                        "video_play": "视频播放事件：",
-                        "event": "事件："
-                    }
-                },
-                "photon": {
-                    "header": "Photon 记录叠加层",
-                    "event_hud": {
-                        "header": "Photon 事件 HUD",
-                        "enable": "启用",
-                        "enable_tooltip": "需要启用 SteamVR 叠加层选项",
-                        "filter": "筛选器",
-                        "filter_favorites": "星标好友",
-                        "filter_friends": "好友",
-                        "filter_everyone": "所有人",
-                        "message_timeout": "消息显示时长"
-                    },
-                    "timeout_hud": {
-                        "header": "用户超时 HUD",
-                        "enable": "启用",
-                        "enable_tooltip": "需要启用 SteamVR 叠加层选项",
-                        "filter": "筛选器",
-                        "filter_favorites": "星标好友",
-                        "filter_friends": "好友",
-                        "filter_everyone": "所有人",
-                        "timeout_threshold": "超时阈值"
-                    }
-                }
+              "header": "高级设置",
+              "launch_options": "启动选项",
+              "screenshot_metadata": "截图元数据查看器",
+              "vrc_registry_backup": "VRC 设置数据备份工具",
+              "common_folders": "常用文件夹",
+              "pending_offline": {
+                "header": "离线标记延迟",
+                "description": "将好友标记为离线之前的延迟(防止误判)",
+                "set_delay": "设置延迟"
+              },
+              "primary_password": {
+                "header": "独立密码",
+                "description": "使用独立密码加密 VRCX 数据(将停用自动登录)"
+              },
+              "relaunch_vrchat": {
+                "header": "崩溃后重启",
+                "description": "重新加入崩溃前的房间"
+              },
+              "vrchat_quit_fix": {
+                "header": "修复 VRChat 关闭问题",
+                "description": "在 VRChat 退出时强制停止 VRChat 进程"
+              },
+              "auto_cache_management": {
+                "header": "缓存自动清理",
+                "description": "退出游戏时自动从缓存中删除过期数据"
+              },
+              "local_world_persistence": {
+                "header": "世界数据持久化",
+                "description": "启用世界数据持久化存储功能(需要重启)"
+              },
+              "remote_database": {
+                "header": "模型数据库",
+                "enable": "启用",
+                "avatar_database_provider": "数据库提供方设置"
+              },
+              "youtube_api": {
+                "header": "Youtube API",
+                "enable": "启用",
+                "youtube_api_key": "Youtube API 密钥",
+                "enable_tooltip": "获取视频标题以供日志记录时使用，并获取进度条的时间"
+              },
+              "video_progress_pie": {
+                "header": "视频进度圆饼叠加层",
+                "enable": "启用",
+                "enable_tooltip": "需要启用 SteamVR 叠加层选项",
+                "dance_world_only": "仅在舞蹈类房间显示"
+              },
+              "screenshot_helper": {
+                "header": "截图助手",
+                "description": "在游戏拍摄的照片的元数据中添加世界ID/世界名称",
+                "description_tooltip": "不幸的是，Windows并不支持直接查看PNG元数据(很多东西都不支持查看这玩意)，但你可以使用exiftool等命令行工具、png查看器或十六进制编辑器来查看它们。",
+                "enable": "启用",
+                "modify_filename": "同时修改文件名",
+                "modify_filename_tooltip": "除了文件元数据外，还将把世界ID添加到截图文件名中。",
+                "copy_to_clipboard": "复制到剪贴板"
+              },
+              "app_launcher": {
+                "header": "应用启动器",
+                "folder": "打开启动文件夹",
+                "folder_tooltip": "如果要在VRChat启动时一并启动一些APP，请将其快捷方式放在这个文件夹中.",
+                "enable": "启用",
+                "auto_close": "在VRChat关闭后自动关闭这些APP"
+              },
+              "cache_debug": {
+                "header": "VRCX 缓存/调试选项",
+                "udon_exception_logging": "显示 Udon 错误日志",
+                "gpu_fix": "修复 SteamVR 叠加层显示问题",
+                "gpu_fix_notice": "(需要重启)",
+                "gpu_fix_warning": "只有在 SteamVR 叠加层异常并且你有2张显卡的情况下才需要启用这个选项。",
+                "disable_gamelog": "关闭游戏日志",
+                "disable_gamelog_notice": "(可能会弄坏很多东西！)",
+                "user_cache": "用户缓存：",
+                "world_cache": "世界缓存：",
+                "avatar_cache": "模型缓存：",
+                "group_cache": "群组信息缓存:",
+                "avatar_name_cache": "模型名称缓存：",
+                "instance_cache": "房间信息缓存:",
+                "clear_cache": "清除缓存",
+                "auto_clear_cache": "自动清除缓存",
+                "download_history": "下载记录",
+                "show_console": "显示界面调试工具"
+              },
+              "sqlite_table_size": {
+                "header": "SQLite 数据库大小",
+                "refresh": "刷新",
+                "gps": "GPS：",
+                "status": "状态：",
+                "bio": "自我介绍：",
+                "avatar": "模型：",
+                "online_offline": "上线 / 离线：",
+                "friend_log_history": "好友变动记录：",
+                "notification": "通知数量：",
+                "location": "位置信息数量：",
+                "join_leave": "加入 / 离开：",
+                "portal_spawn": "放置的传送门数量：",
+                "video_play": "视频播放事件：",
+                "event": "事件："
+              }
+            },
+            "photon": {
+              "header": "Photon 记录叠加层",
+              "event_hud": {
+                "header": "Photon 事件 HUD",
+                "enable": "启用",
+                "enable_tooltip": "需要启用 SteamVR 叠加层选项",
+                "filter": "筛选器",
+                "filter_favorites": "星标好友",
+                "filter_friends": "好友",
+                "filter_everyone": "所有人",
+                "message_timeout": "消息显示时长"
+              },
+              "timeout_hud": {
+                "header": "用户超时 HUD",
+                "enable": "启用",
+                "enable_tooltip": "需要启用 SteamVR 叠加层选项",
+                "filter": "筛选器",
+                "filter_favorites": "星标好友",
+                "filter_friends": "好友",
+                "filter_everyone": "所有人",
+                "timeout_threshold": "超时阈值"
+              }
             }
+          },
+          "AI": {
+            "AIsettings": {
+              "header": "AI设置",
+              "product": "大模型",
+              "model": "模型",
+              "API": "API密钥",
+              "custom": "自定义json模板",
+              "TODO": "TODO"
+
+            }
+          }
         }
     },
     "side_panel": {
