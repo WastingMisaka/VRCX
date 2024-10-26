@@ -34065,9 +34065,10 @@ speechSynthesis.getVoices();
         D.visible = false;
     };
 
-    $app.methods.showSetApiKeyDialog = function () {
-        this.$nextTick(() => adjustDialogZ(this.$refs.SetApiKeyDialog.$el));
+    $app.methods.showSetApiKeyDialog = async function () {
+        this.SetApiKeyDialog.ApiKey = await configRepository.getString('apiKey');
         var D = this.SetApiKeyDialog;
+        this.$nextTick(() => adjustDialogZ(this.$refs.SetApiKeyDialog.$el));
         D.visible = true;
     };
 
