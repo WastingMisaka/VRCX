@@ -21,6 +21,7 @@ using librsync.net;
 using Microsoft.Toolkit.Uwp.Notifications;
 using Microsoft.Win32;
 using NLog;
+using Valve.VR;
 
 namespace VRCX
 {
@@ -561,5 +562,37 @@ namespace VRCX
 
             return null;
         }
+        //Misaka add
+        //获得当前头显的电量信息
+        public float GetHeadsetBattery()
+        {
+            CVRSystem system = OpenVR.System;
+            if (system == null)
+            {
+                return 0.0f;
+            }
+            else
+            {
+                var temp = ETrackedPropertyError.TrackedProp_Success;
+                var batteryPercentage = system.GetFloatTrackedDeviceProperty(0, ETrackedDeviceProperty.Prop_DeviceBatteryPercentage_Float, ref temp);
+                return batteryPercentage;
+            }
+        }
+
+        public bool isHeadsetCharging()
+        {
+            CVRSystem system = OpenVR.System;
+            if (system == null)
+            {
+                return false;
+            }
+            else
+            {
+                var temp = ETrackedPropertyError.TrackedProp_Success;
+                var isHeadsetCharging = system.GetBoolTrackedDeviceProperty(0, ETrackedDeviceProperty.Prop_DeviceIsCharging_Bool, ref temp);
+                return isHeadsetCharging;
+            }
+        }
+        //Misaka added 1
     }
 }

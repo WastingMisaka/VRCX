@@ -11229,9 +11229,11 @@ speechSynthesis.getVoices();
                     groupName: '',
                     time: 0
                 };
-                //Misaka added
-                //Test
+                //Misaka adds
+                //更换世界Test
+                //控制台输出加入的世界名字
                 console.log("instance changed ", entry.worldName);
+                //Misaka added
                 this.getGroupName(gameLog.location).then((groupName) => {
                     entry.groupName = groupName;
                 });
@@ -34062,6 +34064,45 @@ speechSynthesis.getVoices();
         this.$nextTick(() => adjustDialogZ(this.$refs.SetApiKeyDialog.$el));
         D.visible = true;
     };
+    //Misaka add
+    //头显电量、充电测试
+    var lastBattery = -1;
+    var isCharging = false;
+    function checkBattery() {
+        AppApi.isHeadsetCharging().then(chargingStatus => {
+            isCharging = chargingStatus;
+            console.log("充电情况更新：", isCharging);
+        }).catch(error => {
+            console.error("获取充电情况时出错：", error);
+        });
+
+        AppApi.GetHeadsetBattery().then(battery => {
+            console.log("AppApi被调用，原始数据为：", battery);
+            var batteryPercentage = battery.toFixed(2);
+            batteryPercentage = parseFloat(batteryPercentage);
+            if (battery === 0.0) {
+                console.log("没有检测到头显电池情况");
+            }
+            else {
+                if (lastBattery == -1) {
+                    lastBattery = Math.abs(batteryPercentage);
+                    console.log("头显电量初始化： ", lastBattery);
+                }
+                else if (lastBattery != batteryPercentage) {
+                    lastBattery = batteryPercentage;
+                    console.log("原始数据：", battery);
+                    console.log("当前头显电量：", batteryPercentage * 100, "%");
+                } else {
+                    return;
+                }
+            }
+        }).catch(error => {
+            console.error("获取电池电量时出错:", error);
+        });
+    }
+
+    setInterval(checkBattery, 5000);
+    //Misaka added
 
     // #endregion
 
