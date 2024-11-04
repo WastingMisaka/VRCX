@@ -34065,13 +34065,15 @@ speechSynthesis.getVoices();
         D.visible = true;
     };
     //Misaka add
-    //头显电量、充电测试
+    //头显电量、充电 通过VRChat官方API更新到社交状态中
     var lastBattery = -1;
     var isCharging = false;
+    var lastStatus = API.currentUser.status;
     function checkBattery() {
         AppApi.isHeadsetCharging().then(chargingStatus => {
+            console.log("充电原始数据：", chargingStatus);
             isCharging = chargingStatus;
-            console.log("充电情况更新：", isCharging);
+            console.log("充电情况更新：", chargingStatus," ",isCharging);
         }).catch(error => {
             console.error("获取充电情况时出错：", error);
         });
@@ -34090,8 +34092,18 @@ speechSynthesis.getVoices();
                 }
                 else if (lastBattery != batteryPercentage) {
                     lastBattery = batteryPercentage;
-                    console.log("原始数据：", battery);
-                    console.log("当前头显电量：", batteryPercentage * 100, "%");
+                    var batteryStatus = null;
+                    if (isCharging === false)
+                        var batteryStatus = (batteryPercentage * 100) + "% 头显电量";
+                    else
+                        var batteryStatus = (batteryPercentage * 100) + "% 充电中";
+                    console.log("更新电池状态到社交 ：", batteryStatus);
+                    API.saveCurrentUser({
+                        status: lastStatus,
+                        statusDescription: batteryStatus
+                    }).then((args) => {
+                        console.log(args);
+                    });
                 } else {
                     return;
                 }
@@ -34102,7 +34114,7 @@ speechSynthesis.getVoices();
     }
 
     setInterval(checkBattery, 5000);
-    //Misaka added
+    //测试结束
 
     // #endregion
 
