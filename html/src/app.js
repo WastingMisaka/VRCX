@@ -34070,14 +34070,14 @@ speechSynthesis.getVoices();
     var isCharging = false;
     var lastStatus = API.currentUser.status;
     function checkBattery() {
-        AppApi.isHeadsetCharging().then(chargingStatus => {
-            console.log("充电原始数据：", chargingStatus);
+        /*
+        AppApi.isHeadsetCharging().then(chargingStatus =>{
             isCharging = chargingStatus;
-            console.log("充电情况更新：", chargingStatus," ",isCharging);
+            console.log("充电情况更新：",isCharging);
         }).catch(error => {
-            console.error("获取充电情况时出错：", error);
+            console.error("获取充电情况时出错：",error);
         });
-
+        */
         AppApi.GetHeadsetBattery().then(battery => {
             console.log("AppApi被调用，原始数据为：", battery);
             var batteryPercentage = battery.toFixed(2);
@@ -34091,9 +34091,12 @@ speechSynthesis.getVoices();
                     console.log("头显电量初始化： ", lastBattery);
                 }
                 else if (lastBattery != batteryPercentage) {
-                    lastBattery = batteryPercentage;
+                    // 根据电量变化判定 头显充电与否
+                    if (lastBattery < batteryPercentage)
+                        isCharging = true;
+                    else isCharging = false;
                     var batteryStatus = null;
-                    if (isCharging === false)
+                    if (isCharging == false)
                         var batteryStatus = (batteryPercentage * 100) + "% 头显电量";
                     else
                         var batteryStatus = (batteryPercentage * 100) + "% 充电中";
@@ -34104,6 +34107,8 @@ speechSynthesis.getVoices();
                     }).then((args) => {
                         console.log(args);
                     });
+                    // 更新记录的电池，用来判定是否处于充电状态
+                    lastBattery = batteryPercentage;
                 } else {
                     return;
                 }

@@ -579,6 +579,7 @@ namespace VRCX
             }
         }
 
+        /* 目前，VD 和 SteamLink 都无法报告充电情况
         public bool isHeadsetCharging()
         {
             CVRSystem system = OpenVR.System;
@@ -593,6 +594,7 @@ namespace VRCX
                 return isHeadsetCharging;
             }
         }
+        */
         //Misaka added 1
     }
 }
